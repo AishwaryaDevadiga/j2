@@ -14,46 +14,42 @@ class Lab5 {
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
 
-            switch (choice) {
-                case 1:
-                    // Circle calculations
-                    System.out.print("Enter radius of circle: ");
-                    double radius = sc.nextDouble();
-                    double area = Math.PI * radius * radius;
-                    double circumference = 2 * Math.PI * radius;
-                    System.out.println("Area of Circle = " + area);
-                    System.out.println("Circumference of Circle = " + circumference);
-                    break;
+            if (choice == 1) {
+                // Circle calculations
+                System.out.print("Enter radius of circle: ");
+                double radius = sc.nextDouble();
+                double area = Math.PI * radius * radius;
+                double circumference = 2 * Math.PI * radius;
+                System.out.println("Area of Circle = " + area);
+                System.out.println("Circumference of Circle = " + circumference);
 
-                case 2:
-                    // Prime number check
-                    System.out.print("Enter a number: ");
-                    int num = sc.nextInt();
-                    boolean isPrime = true;
+            } else if (choice == 2) {
+                // Prime number check
+                System.out.print("Enter a number: ");
+                int num = sc.nextInt();
+                boolean isPrime = true;
 
-                    if (num <= 1) {
-                        isPrime = false;
-                    } else {
-                        for (int i = 2; i <= num / 2; i++) {
-                            if (num % i == 0) {
-                                isPrime = false;
-                                break;
-                            }
+                if (num <= 1) {
+                    isPrime = false;
+                } else {
+                    for (int i = 2; i <= num / 2; i++) {
+                        if (num % i == 0) {
+                            isPrime = false;
+                            break;
                         }
                     }
+                }
 
-                    if (isPrime)
-                        System.out.println(num + " is a Prime Number.");
-                    else
-                        System.out.println(num + " is NOT a Prime Number.");
-                    break;
+                if (isPrime)
+                    System.out.println(num + " is a Prime Number.");
+                else
+                    System.out.println(num + " is NOT a Prime Number.");
 
-                case 3:
-                    System.out.println("Exiting Program...");
-                    break;
+            } else if (choice == 3) {
+                System.out.println("Exiting Program...");
 
-                default:
-                    System.out.println("Invalid choice! Please try again.");
+            } else {
+                System.out.println("Invalid choice! Please try again.");
             }
         }
 
