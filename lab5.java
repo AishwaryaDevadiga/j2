@@ -1,72 +1,62 @@
-import java.io.*;  
+import java.util.Scanner;
 
-class lab5 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+class Lab5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         int choice = 0;
 
-        // Menu runs until user chooses 3
-        while (choice != 3) 
-        {
+        while (choice != 3) {
             // Display menu
             System.out.println("\n--- MENU ---");
             System.out.println("1. Find Area and Circumference of Circle");
             System.out.println("2. Check Prime Number");
             System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
-            
-            choice = Integer.parseInt(br.readLine()); // read user choice
+            choice = sc.nextInt();
 
-            if (choice == 1) 
-            {
-                // Circle area and circumference
-                System.out.print("Enter radius of circle: ");
-                double radius = Double.parseDouble(br.readLine());
-                double area = Math.PI * radius * radius;
-                double circumference = 2 * Math.PI * radius;
-                System.out.println("Area of Circle = " + area);
-                System.out.println("Circumference of Circle = " + circumference);
+            switch (choice) {
+                case 1:
+                    // Circle calculations
+                    System.out.print("Enter radius of circle: ");
+                    double radius = sc.nextDouble();
+                    double area = Math.PI * radius * radius;
+                    double circumference = 2 * Math.PI * radius;
+                    System.out.println("Area of Circle = " + area);
+                    System.out.println("Circumference of Circle = " + circumference);
+                    break;
 
-            } 
-            else if (choice == 2) 
-            {
-                // Prime number check
-                System.out.print("Enter a number: ");
-                int num = Integer.parseInt(br.readLine());
-                boolean isPrime = true;
+                case 2:
+                    // Prime number check
+                    System.out.print("Enter a number: ");
+                    int num = sc.nextInt();
+                    boolean isPrime = true;
 
-                if (num <= 1) 
-                {
-                    isPrime = false;
-                } 
-                else 
-                {
-                    for (int i = 2; i <= num / 2; i++) 
-                    {
-                        if (num % i == 0) 
-                        {
-                            isPrime = false;
-                            break;
+                    if (num <= 1) {
+                        isPrime = false;
+                    } else {
+                        for (int i = 2; i <= num / 2; i++) {
+                            if (num % i == 0) {
+                                isPrime = false;
+                                break;
+                            }
                         }
                     }
-                }
 
-                if (isPrime)
-                    System.out.println(num + " is a Prime Number.");
-                else
-                    System.out.println(num + " is NOT a Prime Number.");
+                    if (isPrime)
+                        System.out.println(num + " is a Prime Number.");
+                    else
+                        System.out.println(num + " is NOT a Prime Number.");
+                    break;
 
-            } 
-            else if (choice == 3) 
-            {
-                System.out.println("Exiting Program...");
+                case 3:
+                    System.out.println("Exiting Program...");
+                    break;
 
-            } 
-            else 
-            {
-                System.out.println("Invalid choice! Please try again.");
+                default:
+                    System.out.println("Invalid choice! Please try again.");
             }
         }
+
+        sc.close();
     }
 }
- 
