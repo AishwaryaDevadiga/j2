@@ -1,34 +1,43 @@
-import java.io.*;
+import java.util.Scanner;
 
 interface Rectangle {
-    double areaRectangle(double l, double b);
+    double areaRectangle(double l, double br);
 }
 
 interface Triangle {
     double areaTriangle(double b, double h);
 }
 
-public class lab6 implements Rectangle, Triangle {
-    public double areaRectangle(double l, double b) {
-        return l * b;
+public class Lab6 implements Rectangle, Triangle {
+
+    public double areaRectangle(double l, double br) {
+        return l * br;
     }
+
     public double areaTriangle(double b, double h) {
         return 0.5 * b * h;
     }
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        lab6 obj = new lab6();
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Lab6 obj = new Lab6();
 
-        System.out.print("Enter length and breadth of rectangle: ");
-        double l = Double.parseDouble(br.readLine());
-        double b = Double.parseDouble(br.readLine());
+        // Rectangle input
+        System.out.print("Enter length of rectangle: ");
+        double length = sc.nextDouble();
+        System.out.print("Enter breadth of rectangle: ");
+        double breadth = sc.nextDouble();
 
-        System.out.print("Enter base and height of triangle: ");
-        double b = Double.parseDouble(br.readLine());
-        double h = Double.parseDouble(br.readLine());
+        // Triangle input
+        System.out.print("Enter base of triangle: ");
+        double b = sc.nextDouble();
+        System.out.print("Enter height of triangle: ");
+        double h = sc.nextDouble();
 
-        System.out.println("Area of Rectangle = " + obj.areaRectangle(l, b));
-        System.out.println("Area of Triangle = " + obj.areaTriangle(bt, h));
+        // Display results
+        System.out.println("Area of Rectangle = " + obj.areaRectangle(length, breadth));
+        System.out.println("Area of Triangle = " + obj.areaTriangle(b, h));
+
+        sc.close();
     }
 }
